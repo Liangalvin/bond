@@ -16,8 +16,11 @@ app.get('/', function(req, res){
     }
     res.render('./home.jade', {msg: msg});
   })
-  .get('/page1', function(req,res){
+  .get('/page1', function(req, res){
     res.render('./page1.jade');
+  })
+  .get('/page2', function(req, res){
+    res.render('./page2.jade');
   })
 
 //post routes
@@ -31,8 +34,9 @@ app.post('/create', function(req, res){
     this.email = email,
     this.score = 0
   }(function(){
-    this.correctAns = function(){
-      return this.score += points
+    this.correctAns = function(pts){
+      //return parseInt(this.score) += pts;
+      return this.score += pts;
     };
   }).call(User.prototype);
 
@@ -43,10 +47,20 @@ app.post('/create', function(req, res){
 
   res.redirect('/home');
 })
+//page 1 response
   .post('/ans1', function(req, res){
 
-    var answer ;
+    //var answer = document.querySelector('.question1:checked').value;
+    var answer = req.body.ans;
+
+    users[0].correctAns(parseInt(answer));
+    console.log(answer);
+    console.log(users[0]);
+    res.redirect('/page2')
   })
+
+
+
 
 //port 3000
 app.listen(3000, function(){
