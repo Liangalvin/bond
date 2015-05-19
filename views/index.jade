@@ -1,0 +1,31 @@
+html
+
+  head
+    title MISSION BOND
+
+  body
+    div
+      h1 Mission code name: "Bond Domestication"
+      h2 Objective:
+      p Finding a spouse for James Bond
+      h2 Description:
+      p James Bond has been a player on the dating market for many years. This mission requires a potential applicant to know James Bond from inside out, expect this mission to last a lifetime.
+
+    div
+      h2 Sign Up for this Mission
+
+      form(name='login', action='/create', method='post')
+        |First Name: &nbsp;
+        input(type='text', name='firstName', required)
+        &nbsp;
+        |Last Name: &nbsp;
+        input(type='text', name='lastName', required)
+        &nbsp;
+        br
+        |Email: &nbsp;
+        input(type='text', name='email', required)
+        br
+        |Date of Birth: &nbsp;
+        input(type='date', name="dob" required)#dob
+        br
+        button submit

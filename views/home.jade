@@ -1,0 +1,17 @@
+html
+
+  head
+    title MISSION BOND
+
+  body
+    div
+      h1 Welcome #{msg.fName} #{msg.lName}!
+
+    div
+      h3 #{msg.fName} click on the 'Start Button' to take a test.
+      p The test will see how well you know James Bond. At the end the test will see whether or not you are to be selected.
+      p Only those who score 100% on the test will be considered for selection.
+
+    div
+      form(action="/page1", method="get")
+        button Start Now

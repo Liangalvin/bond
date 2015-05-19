@@ -1,0 +1,27 @@
+html
+  head
+    title MISSION BOND
+
+  body
+    div
+      h2 Question 1
+
+      p James Bond wins $100 million dollars from a poker tournament at Casino Royale in Montenegro. This was necessary due to the fact that Solange disclosed information on the whereabouts of Alex Dimitrios. While in Florida, James Bond discovers the attempt of a henchmen (Carlos) in attempting to blow up the airliner.
+
+      form(name='ans1', action='/ans1', method='post')
+        input(type='checkbox', name='false')
+        |True because Le Chiffire owns shares of a rival company and blowing up Skyfleet's liner would cause the stock to drop.
+        br
+        input(type='checkbox', name='false')
+        |False because Le Chiffre short sold shares of Skyfleet and blowing up the Skyfleet liner would cause the stock to drop.
+        br
+        input(type='checkbox', name='true', value='true')
+        |True because Le Chiffre shorted shares of Skyfleet and blowing up the Skyfleet liner would cause the stock to drop.
+        br
+        input(type='checkbox', name='false')
+        |False because Le Chiffre bought shares of Skyfleet's rival company and blowing up the Skyfleet liner would cause the rival stock to rise.
+        br
+        input(type='checkbox', name='false')
+        |True because Le Chiffre shorted shares of Skyfleet's stock but has to blow Skyfleet's liner because the company is a part of James Bond's espionage group.
+        br
+        button submit
