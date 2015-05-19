@@ -44,10 +44,8 @@ app.post('/create', function(req, res){
   res.redirect('/home');
 })
   .post('/ans1', function(req, res){
-    console.log(req.body.false);
-    var answer = req.body.true;
-    console.log(answer.checked);
 
+    var answer ;
   })
 
 //port 3000
