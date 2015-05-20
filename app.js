@@ -9,6 +9,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.get('/', function(req, res){
     res.render('./index.jade');
   })
+
   .get('/home', function(req,res){
     var msg = {
       fName: users[0].firstName,
@@ -16,11 +17,11 @@ app.get('/', function(req, res){
     }
     res.render('./home.jade', {msg: msg});
   })
-  .get('/page1', function(req, res){
-    res.render('./page1.jade');
-  })
-  .get('/page2', function(req, res){
-    res.render('./page2.jade');
+
+  .get('/:id', function(req, res){
+    var page = req.params.id;
+    console.log(page);
+    res.render('./'+page+'.jade');
   })
 
 //post routes
@@ -47,16 +48,22 @@ app.post('/create', function(req, res){
 
   res.redirect('/home');
 })
-//page 1 response
+
   .post('/ans1', function(req, res){
-
-    //var answer = document.querySelector('.question1:checked').value;
-    var answer = req.body.ans;
-
-    users[0].correctAns(parseInt(answer));
-    console.log(answer);
+    users[0].correctAns(parseInt(req.body.ans));
     console.log(users[0]);
-    res.redirect('/page2')
+    res.redirect('/page2');
+  })
+
+  .post('/ans2', function(req, res){
+    users[0].correctAns(parseInt(req.body.ans));
+    console.log(users[0]);
+    res.redirect('/page3');
+  })
+  .post('/ans3', function(req, res){
+    users[0].correctAns(parseInt(req.body.ans));
+    console.log(users[0]);
+    res.redirect('/page4');
   })
 
 
