@@ -49,22 +49,29 @@ app.post('/create', function(req, res){
   res.redirect('/home');
 })
 
-  .post('/ans1', function(req, res){
+  .post('/ans/:id', function(req, res){
+    var num = parseInt(req.params.id)+1;
     users[0].correctAns(parseInt(req.body.ans));
     console.log(users[0]);
-    res.redirect('/page2');
+    res.redirect('/page'+num);
   })
 
-  .post('/ans2', function(req, res){
-    users[0].correctAns(parseInt(req.body.ans));
-    console.log(users[0]);
-    res.redirect('/page3');
-  })
-  .post('/ans3', function(req, res){
-    users[0].correctAns(parseInt(req.body.ans));
-    console.log(users[0]);
-    res.redirect('/page4');
-  })
+  // .post('/ans/1', function(req, res){
+  //   users[0].correctAns(parseInt(req.body.ans));
+  //   console.log(users[0]);
+  //   res.redirect('/page2');
+  // })
+
+  // .post('/ans2', function(req, res){
+  //   users[0].correctAns(parseInt(req.body.ans));
+  //   console.log(users[0]);
+  //   res.redirect('/page3');
+  // })
+  // .post('/ans3', function(req, res){
+  //   users[0].correctAns(parseInt(req.body.ans));
+  //   console.log(users[0]);
+  //   res.redirect('/page4');
+  // })
 
 
 
