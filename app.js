@@ -56,25 +56,14 @@ app.post('/create', function(req, res){
     res.redirect('/page'+num);
   })
 
-  // .post('/ans/1', function(req, res){
-  //   users[0].correctAns(parseInt(req.body.ans));
-  //   console.log(users[0]);
-  //   res.redirect('/page2');
-  // })
-
-  // .post('/ans2', function(req, res){
-  //   users[0].correctAns(parseInt(req.body.ans));
-  //   console.log(users[0]);
-  //   res.redirect('/page3');
-  // })
-  // .post('/ans3', function(req, res){
-  //   users[0].correctAns(parseInt(req.body.ans));
-  //   console.log(users[0]);
-  //   res.redirect('/page4');
-  // })
 
 
 
+app.use(function(req, res, next) {
+  var err = new Error('Not Found');
+  err.status = 404;
+  next(err);
+});
 
 //port 3000
 app.listen(3000, function(){
