@@ -1,0 +1,39 @@
+html
+  head
+    title MISSION BOND
+
+  body
+    div
+      h2 Question 5
+
+      p James Bond embodies many characteristics men are envious of. Confidence, self-control, strength, independence, calm demeanor, intelligence, ability to handle weapons, goal oriented(always finishing what he starts), loyalty and always dressed to kill. Throughout various films, he drives
+
+        form(name='ans5', action='/ans/5', method='post')
+          input(class="question5" type='checkbox' name='ans' value=0)
+          | Ford the most because of American horse power allowing him to go fast.
+          br
+          input(class="question5" type='checkbox' name='ans' value=0)
+          | BMW the most because of the German horse power and style of beamer's.
+          br
+          input(class="question5" type='checkbox' name='ans' value=0)
+          | Mercedes the most because of the German horse power and brand name it displays.
+          br
+          input(class="question5" type='checkbox' name='ans' value=0)
+          | Lexus the most because of the Japanese horse power, style and easily maintainable cost.
+          br
+          input(class="question5" type='checkbox' name='ans' value=0)
+          | Infiniti the most because of the Japanese horse power, style and sporty look.
+          br
+          input(class="question5" type='checkbox' name='ans' value=0)
+          | Maserati the most because of the it's horse power and sporty exterior.
+          br
+          input(class="question5" type='checkbox' name='ans' value=10)
+          | Aston Martin the most because of it's horse power and sporty exterior.
+          br
+          input(class="question5" type='checkbox' name='ans' value=0)
+          | Lamborghini the most because of it's horse power, sporty exterior and price.
+          br
+          input(class="question5" type='checkbox' name='ans' value=0)
+          | Audi the most because of it's horse power, sporty exterior and his fondness for Iron man.
+          br
+          button submit
