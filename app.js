@@ -21,7 +21,15 @@ app.get('/', function(req, res){
   .get('/:id', function(req, res){
     var page = req.params.id;
     console.log(page);
-    res.render('./'+page+'.jade');
+    var msg = parseInt(users[0].score);
+    console.log(msg);
+
+    if(page !== "results"){
+      res.render('./'+page+'.jade');
+    }
+    else {
+      res.render('./results.jade', {msg: msg});
+    }
   })
 
 //post routes
@@ -50,12 +58,18 @@ app.post('/create', function(req, res){
 })
 
   .post('/ans/:id', function(req, res){
-    var num = parseInt(req.params.id)+1;
+    var num = parseInt(req.params.id);
     users[0].correctAns(parseInt(req.body.ans));
     console.log(users[0]);
-    res.redirect('/page'+num);
-  })
+    if (num <= 9) {
+      num += 1;
+      res.redirect('/page'+num);
+    }
+    else {
+      res.redirect('/results');
+    }
 
+  })
 
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
