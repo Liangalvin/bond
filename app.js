@@ -36,12 +36,14 @@ app.get('/', function(req, res){
 app.post('/create', function(req, res){
   if (!req.body) return res.sendStatus(400);
 
-  function User(fName, lName, dob, email){
+  function User(fName, lName, pWord, dob, email){
     this.firstName = fName,
     this.lastName = lName,
+    this.password = pWord,
     this.dob = dob,
     this.email = email,
-    this.score = 0
+    this.score = 0,
+    this.validUser = false
   }(function(){
     this.correctAns = function(pts){
       //return parseInt(this.score) += pts;
@@ -49,7 +51,7 @@ app.post('/create', function(req, res){
     };
   }).call(User.prototype);
 
-  var user = new User(req.body.firstName, req.body.lastName, req.body.dob, req.body.email);
+  var user = new User(req.body.firstName, req.body.lastName, req.body.password, req.body.dob, req.body.email);
 
   users.push(user);
   console.log(users);
@@ -57,8 +59,24 @@ app.post('/create', function(req, res){
   res.redirect('/home');
 })
 
-  .post('/login', function(req,res){
-    
+  .post('/session', function(req,res){
+    var email = req.body.email
+    ,   password = req.body.email
+    ,   valid = users[0].validUser = true
+
+    req.session.validUser = valid;
+  })
+
+  .use(function(req, res, next){
+    var valid = req.session.validUser;
+
+    if(!valid){
+      valid = req.session.validUser = {};
+      res.redirect('/')
+    }
+    else{
+      res.redirect('/home')
+    }
   })
 
   .post('/ans/:id', function(req, res){
