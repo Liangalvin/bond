@@ -57,6 +57,10 @@ app.post('/create', function(req, res){
   res.redirect('/home');
 })
 
+  .post('/login', function(req,res){
+    
+  })
+
   .post('/ans/:id', function(req, res){
     var num = parseInt(req.params.id);
     users[0].correctAns(parseInt(req.body.ans));
